@@ -1,0 +1,14 @@
+[
+  {
+    "url": "/cat-photo.jpeg",
+    "title": "My Cat",
+    "ownerId": "VSgec60ArbMF7FCuXe37rmVwGXl2",
+    "sharedWith": ["tJAvWNz5QOfbdlAN16PBQwzHWlN2"]
+  },
+  {
+    "url": "/car-photo.jpg",
+    "title": "My Car",
+    "ownerId": "tJAvWNz5QOfbdlAN16PBQwzHWlN2",
+    "sharedWith": ["VSgec60ArbMF7FCuXe37rmVwGXl2"]
+  }
+]
