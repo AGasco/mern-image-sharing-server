@@ -1,21 +1,22 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { initializeApp, cert } from 'firebase-admin/app';
-import credentials from '../credentials.json';
 import { db } from './db';
-import { routes } from './routes';
+import { routes, protectRouteMiddleware } from './routes';
+import credentials from './credentials.json';
 
 initializeApp({
   credential: cert(credentials),
-  databaseURL: 'https://members-only.firebaseio.com'
+  databaseURL: 'https://mern-photo-sharing.firebaseio.com'
 });
 
 const app = express();
 
+app.use(express.static(__dirname + '/uploads/'));
 app.use(bodyParser.json());
 
 routes.forEach((route) => {
-  app[route.method](route.path, route.handler);
+  app[route.method](route.path, protectRouteMiddleware, route.handler);
 });
 
 const start = async () => {
